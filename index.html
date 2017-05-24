@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>...and Chill</title>
+  <meta charset="UTF-8">
+  <title>...and Chill</title>
+  <link rel="stylesheet" href="lib/node_modules/materialize-css/dist/css/materialize.min.css">
+  <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-	
+
+<!-- Nav bar starts here  -->
+  <nav id="navbar-primary">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-push-1" id="navHolder">
+          <div id="userName"></div>
+          <div class ="row">
+            <label class="col-md-push-3 col-md-2"> Search: </label>
+            <input type="text" class="col-md-4 col-md-push-2" id="searchInput" name="searchInput"  placeholder="Search OMDb and your tracked movies" style="display: inline-block">
+            <button type="button" class="btn btn-primary col-md-1 col-md-push-3" style="display: inline-block" id="loginButton">Login</button>
+            <button type="button" class="btn btn-primary col-md-1 col-md-push-3 hidden" style="display: inline-block" id="logoutButton">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+<!-- Nav bar ends here  -->
+
+<p><h2>...and Chill ></h2></p>SEARCH RESULTS/UNWATCHED/WATCHED/FAVORITES</p>
+
+
+<!-- Here's where our "Show" Movies will go  -->
+  <div id="showContainer" class="container">
+
+    <button type="button" class="btn switchViewButton btn-primary" id="untrackedMoviesButton"> Untracked Movies</button>
+
+    <button type="button" class="btn switchViewButton" id="unwatchedMoviesButton"Unwatched Movies"> Unwatched Movies</button>
+
+    <button type="button" class="btn switchViewButton" id="watchedMoviesButton" Watched Movies"> Watched Movies</button>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+  <script type='text/javascript' src='dist/app.js'></script>
 </body>
 </html>
