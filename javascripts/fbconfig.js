@@ -1,23 +1,27 @@
 "use strict";
 
+let firebase = require("firebase/app"),
+    fb = require("./firebase-get"),
+    fbData = fb();
+
+require("firebase/auth");
+require("firebase/database");
+
 let FBConfig = {
 	//get private FB access info
-},
-
-	APIConfig = {
-	//get private API access info
+	apiKey: fbData.apiKey,
+	authDomain: fbData.authDomain,
+	databaseURL: fbData.databaseURL
 };
 
- function getFBsettings() {
+firebase.getFBsettings = () => {
 	//return FBConfig
-}
-
-function getAPIsettings() {
-	//return APIConfig
-}
+	console.log("getFBsettings", FBConfig);
+	return FBConfig;
+};
 
 //initialize firebase config
+firebase.initializeApp(FBConfig);
 
-//initialize api config?
 
-module.exports = {getFBsettings, getAPIsettings};
+module.exports = {firebase};
