@@ -1,0 +1,36 @@
+{
+  "name": "movie-history-group-project-and-chill",
+  "version": "1.0.0",
+  "description": "Website that allows a user to access a movie database API, create and edit a personal watchlist",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nss-day-cohort-19/movie-history-group-project-and-chill.git"
+  },
+  "author": "...and-Chill",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nss-day-cohort-19/movie-history-group-project-and-chill/issues"
+  },
+  "homepage": "https://github.com/nss-day-cohort-19/movie-history-group-project-and-chill#readme",
+  "devDependencies": {
+    "browserify": "^14.3.0",
+    "grunt": "^1.0.1",
+    "grunt-browserify": "^5.0.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "hbsfy": "^2.7.0",
+    "jquery": "^3.2.1",
+    "lodash": "^4.17.4",
+    "matchdep": "^1.0.1",
+    "materialize": "^1.0.0"
+  },
+  "dependencies": {
+    "firebase": "^4.0.0",
+    "handlebars": "^4.0.10"
+  }
+}
