@@ -1,13 +1,14 @@
 "use strict";
 
 function getFBKey() {
-	//returns firebase access info: apiKey, authDomain, databaseURL
+	return {
+        apiKey: "AIzaSyB7-Xby7dg7JvmQkjebNHuExFx_zJlShWY",
+        authDomain: "and-chill-5eeba.firebaseapp.com",
+        databaseURL: "https://and-chill-5eeba.firebaseio.com"
+    };
 }
 
-function getAPIKEY() {
-	//returns movieDB access info: 
-}
 
-module.exports = {getFBKey, getAPIKEY};
+module.exports = {getFBKey};
 
 

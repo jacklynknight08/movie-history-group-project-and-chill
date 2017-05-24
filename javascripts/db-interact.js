@@ -1,6 +1,21 @@
 "use strict";
 
-function findMovies(/*params as needed to specificy search of api*/) {
+let $ = require("jquery"),
+config = require("./APIconfig.js");
+
+function findMovies(/*params as needed to specify search of api*/) {
+	let searchParams = encodeURI($('#searchParams').val()),
+		api_key = APIconfig.getAPIsettings().api_key;
+
+	return new Promise(function(resolve, reject){
+		$.ajax({
+			url: `${APIconfig.getAPIsettings().databaseURL}?api_key=${api_key}&query=${searchParams}`
+		}).done(function(movieData){
+			resolve(movieData);
+		}).fail(function(error){
+			reject(error);
+		});
+	});
 	//return Promise to find movies from api
 	//resolves object of movies
 }
@@ -22,7 +37,7 @@ function addToWatchlist(/*movie object from api to FB*/) {
 
 function markAsWatched(/*movie identifier, watched key*/) {
 	//return Promise that 'PATCH's object with watched info
-	//resolve 
+	//resolve
 }
 
 function deleteFromWatchlist(/*movie identifier*/) {
