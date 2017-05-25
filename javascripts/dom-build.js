@@ -5,10 +5,15 @@ let $ = require('jquery'),
   cardTemplate = require('../templates/movieCards.hbs'),
   movieData = require('./db-interact.js');
 
+
 function makeMovieCards(movieList) {
+
+  console.log("makeMovieCards");
+
   console.log("what", $("#cardContainer"));
   console.log("mMC", movieData);
   $("#cardContainer").innerHTML = movieData;
+
   //set up materialize columns and rows
   //calls handlebars template
   //gets result from template and appends everything to the DOM

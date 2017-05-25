@@ -14,7 +14,10 @@ let $ = require('jquery'),
 		});
 	});
 
+
 function loadAPIMoviesToDOM() {
+	console.log("loading movies");
+	//buildDom.makeMovieCards(movieData.results);
 	//just takes API searched data and loads to dom
 }
 
@@ -27,11 +30,14 @@ function buildMovieObj() {
 	//also pushs rated and favorite movies to FB by adding/changing a key
 }
 
+//.add_to_watch eventListener
+
 
 $("#showContainer").on("click", function (){
 	console.log(event.target);
 });
 //.add_to_watch eventListener 
+
 
 //search-btn eventListener (calls findMovies() and getWatchlist())
 
