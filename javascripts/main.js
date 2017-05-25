@@ -3,13 +3,14 @@ console.log("main.js");
 
 let $ = require('jquery'),
 	interact = require('./db-interact.js'),
-	buildDom = require('./dom-build.js');
+	buildDom = require('./dom-build.js'),
+	template = require('../templates/movieCards.hbs');
 
 	$("#submit").on("click", function(){
 		interact.findMovies()
 		.then(function(data){
 		console.log("data", data);
-		buildDom.makeMovieCards(data.results);
+		buildDom.filterAPIObj(data);
 
 		});
 	});
@@ -36,7 +37,7 @@ function buildMovieObj() {
 $("#showContainer").on("click", function (){
 	console.log(event.target);
 });
-//.add_to_watch eventListener 
+//.add_to_watch eventListener
 
 
 //search-btn eventListener (calls findMovies() and getWatchlist())

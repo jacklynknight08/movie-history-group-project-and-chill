@@ -1,9 +1,17 @@
-{{#each movieData}}
-	<ul "data-movie-id"= {{id}}>
-		<li><img src={{poster_path}}></li>
-		<li><h5>{{title}}</h5></li>
-		<li><p>{{description}}</p></li>
-		<li><p>{{date}}</p></li>
-		<li><p>{{actors}}</p></li>
-	</ul>
+<div class="row">
+
+{{#each this}}
+
+		<div class="col s4">
+				<ul class="data-movie-id"={{id}}>
+					<li><img src={{poster_path}}></li>
+					<li><h5>{{title}}</h5></li>
+					<li><p>{{overview}}</p></li>
+					<li><p>{{release_date}}</p></li>
+					<li><p>{{actors}}</p></li>
+				</ul>
+		</div>
+
 {{/each}}
+
+</div>
