@@ -1,4 +1,8 @@
-"strict";
+"use strict";
+console.log("main.js");
+
+let $ = require('jquery'),
+	interact = require('./db-interact.js');
 
 function loadAPIMoviesToDOM() {
 	//just takes API searched data and loads to dom
