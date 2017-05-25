@@ -1,8 +1,14 @@
 "use strict";
 
-let $ = require('jquery');
+let $ = require('jquery'),
+  Handlebars = require('hbsfy/runtime'),
+  cardTemplate = require('../templates/movieCards.hbs'),
+  movieData = require('./db-interact.js');
 
 function makeMovieCards(movieList) {
+  console.log("what", $("#cardContainer"));
+  console.log("mMC", movieData);
+  $("#cardContainer").innerHTML = movieData;
   //set up materialize columns and rows
   //calls handlebars template
   //gets result from template and appends everything to the DOM
@@ -26,4 +32,4 @@ console.log("newMovieArray", newMovieArray);
 // $('#movie-card-div').html(cardTemplate(newMovieArray));
 }
 
-module.exports = {makeMovieCards};
+module.exports = {makeMovieCards, filterAPIObj};
