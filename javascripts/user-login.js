@@ -1,5 +1,5 @@
 "use strict";
-let firebase = require("./firebaseConfig"),
+let firebase = require("./fbconfig.js"),
     provider = new firebase.auth.GoogleAuthProvider(),
     currentUser = null;
 
@@ -9,6 +9,10 @@ function logInGoogle() {
 
 function logoutGoogle() {
 	return firebase.auth().signOut();
+}
+
+function setUser(val){
+  currentUser= val;
 }
 
 function getUser() {
@@ -24,4 +28,4 @@ firebase.auth().onAuthStateChanged(function(user){
   }
 });
 
-module.exports = {logInGoogle, logoutGoogle, getUser};
+module.exports = {logInGoogle, logoutGoogle, setUser, getUser};

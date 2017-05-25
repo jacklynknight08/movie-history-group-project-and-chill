@@ -4,7 +4,9 @@ console.log("main.js");
 let $ = require('jquery'),
 	interact = require('./db-interact.js'),
 	buildDom = require('./dom-build.js'),
+	user = require('./user-login.js'),
 	template = require('../templates/movieCards.hbs');
+
 
 	$("#submit").on("click", function(){
 		interact.findMovies()
@@ -52,3 +54,18 @@ $("#showContainer").on("click", function (){
 
 //stars eventListener (calls rateMovie())
 
+
+$("#loginButton").click(function(){
+  console.log("clicked on auth-btn");
+  user.logInGoogle()
+  .then(function(result){
+    console.log("result from Login", result.user.uid);
+    user.setUser(result.user.uid);
+    loadAPIMoviesToDOM();
+  });
+});
+
+
+$("#logoutButton").click(function(){
+  user.logoutGoogle();
+});
