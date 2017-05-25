@@ -26,9 +26,11 @@ function loadFBMoviesToDOM() {
 
 }
 
-function buildMovieObj() {
+function buildMovieObj(event) {
 	//takes card created by converting API data to card and pushes to FB
 	//also pushs rated and favorite movies to FB by adding/changing a key
+	let movieObj = {"id": $(event.target).data("movie-id")};
+	return movieObj;
 }
 
 //.add_to_watch eventListener
@@ -37,7 +39,21 @@ function buildMovieObj() {
 $("#showContainer").on("click", function (){
 	console.log(event.target);
 });
+
+
 //.add_to_watch eventListener
+
+// Use this when the click isn't on the page yet
+
+$(document).on("click", "#add-button", function(event){
+	console.log("clicked add");
+	interact.addToWatchlist(buildMovieObj(event));
+});
+
+
+
+
+
 
 
 //search-btn eventListener (calls findMovies() and getWatchlist())

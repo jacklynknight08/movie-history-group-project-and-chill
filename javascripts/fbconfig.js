@@ -24,4 +24,4 @@ firebase.getFBsettings = () => {
 firebase.initializeApp(FBConfig);
 
 
-module.exports = {firebase};
+module.exports = firebase;
