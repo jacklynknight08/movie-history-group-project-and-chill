@@ -11,7 +11,7 @@ function makeMovieCards(movieList) {
   console.log("makeMovieCards");
 
   console.log("what", $("#cardContainer"));
-  console.log("mMC", movieData);
+  console.log("mMC", movieList);
   $("#cardContainer").innerHTML = movieData;
 
   //set up materialize columns and rows
@@ -26,7 +26,7 @@ function filterAPIObj(data) {
   for (var i = 0; i < apiArray.length; i++) {
       let newMovieObj = new Object({});
       newMovieObj.id = apiArray[i].id;
-      newMovieObj.poster_path = apiArray[i].poster_path;
+      newMovieObj.poster_path = "https://image.tmdb.org/t/p/w500/" + apiArray[i].poster_path;
       newMovieObj.title = apiArray[i].title;
       newMovieObj.overview = apiArray[i].overview;
       newMovieObj.release_date = apiArray[i].release_date;
@@ -34,7 +34,7 @@ function filterAPIObj(data) {
   newMovieArray.push(newMovieObj);
   }
 console.log("newMovieArray", newMovieArray);
-// $('#movie-card-div').html(cardTemplate(newMovieArray));
+  $('#movie-card-div').html(cardTemplate(newMovieArray));
 }
 
 module.exports = {makeMovieCards, filterAPIObj};

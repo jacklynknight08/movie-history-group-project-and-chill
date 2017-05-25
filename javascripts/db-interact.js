@@ -11,7 +11,7 @@ $("#searchInput").keyup(function(e) {
 	if (e.keyCode === 13){
 		findMovies()
 		.then(function(movieData){
-			DOM.makeMovieCards(movieData.results);
+			DOM.filterAPIObj(movieData);
 		});
 	}
 });
@@ -19,12 +19,12 @@ $("#searchInput").keyup(function(e) {
 
 
 function findMovies(/*params as needed to specify search of api*/) {
-	let searchParams = encodeURI($('#searchParams').val()),
-		api_key = config.getAPIsettings().api_key;
-
+	let searchParams = encodeURI($('#searchInput').val()),
+		api_key = config.getAPIsettings().apiKey;
+		console.log("search param", searchParams);
 	return new Promise(function(resolve, reject){
 		$.ajax({
-			url: `${config.getAPIsettings().movieSearchURL}?api_key=${api_key}&query=${searchParams}`
+			url: `${config.getAPIsettings().movieSearchURL}?api_key=${api_key}&query=${searchParams}&language=en-US&page=1&include_adult=false`
 		}).done(function(movieData){
 			resolve(movieData);
 		}).fail(function(error){
