@@ -1,11 +1,13 @@
 "use strict";
 
-let $ = require('jquery');
+let $ = require('jquery'),
+	Handlebars = require('hbsfy/runtime'),
+	cardTemplate = require('../templates/movieCards.hbs');
 
-function makeMovieCards(movieList) {
-  //set up materialize columns and rows
-  //calls handlebars template
-  //gets result from template and appends everything to the DOM
+function makeMovieCards(movieData) {
+	console.log("what", $("#cardContainer"));
+	console.log("mMC", movieData);
+	$("#cardContainer").innerHTML = movieData;
 }
 
 module.exports = {makeMovieCards};

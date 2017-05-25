@@ -1,14 +1,17 @@
 "use strict";
-console.log("hello misss");
-let $ = require('jquery');
-let interact = require("./db-interact.js");
 
+console.log("main.js");
 
+let $ = require('jquery'),
+ interact = require("./db-interact.js"),
+ buildDom = require('./dom-build.js');
 
 $('#submit').on("click", function(){
 	interact.findMovies()
 	.then(function(data){
 	console.log("data", data);
+	buildDom.makeMovieCards(data.results);
+
 	});
 });
 
@@ -24,6 +27,12 @@ function buildMovieObj() {
 	//takes card created by converting API data to card and pushes to FB
 	//also pushs rated and favorite movies to FB by adding/changing a key
 }
+
+
+$("#showContainer").on("click", function () {
+	//eventListener on container div to target cards
+	console.log(event.target);
+});
 
 //.add_to_watch eventListener
 
