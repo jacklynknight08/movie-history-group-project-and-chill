@@ -5,6 +5,14 @@ let $ = require('jquery'),
 	interact = require('./db-interact.js'),
 	buildDom = require('./dom-build.js');
 
+	$("#submit").on("click", function(){
+		interact.findMovies()
+		.then(function(data){
+		console.log("data", data);
+		buildDom.makeMovieCards(data.results);
+
+		});
+	});
 
 
 function loadAPIMoviesToDOM() {
@@ -23,6 +31,13 @@ function buildMovieObj() {
 }
 
 //.add_to_watch eventListener
+
+
+$("#showContainer").on("click", function (){
+	console.log(event.target);
+});
+//.add_to_watch eventListener 
+
 
 //search-btn eventListener (calls findMovies() and getWatchlist())
 
