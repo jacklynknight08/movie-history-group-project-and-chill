@@ -4,13 +4,15 @@ console.log("main.js");
 let $ = require('jquery'),
 	interact = require('./db-interact.js'),
 	buildDom = require('./dom-build.js'),
-	user = require('./user-login.js');
+	user = require('./user-login.js'),
+	template = require('../templates/movieCards.hbs');
+
 
 	$("#submit").on("click", function(){
 		interact.findMovies()
 		.then(function(data){
 		console.log("data", data);
-		buildDom.makeMovieCards(data.results);
+		buildDom.filterAPIObj(data);
 
 		});
 	});
