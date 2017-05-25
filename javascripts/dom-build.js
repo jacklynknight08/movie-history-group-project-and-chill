@@ -2,7 +2,9 @@
 
 let $ = require('jquery');
 
+
 function makeMovieCards(movieList) {
+  console.log("makeMovieCards");
   //set up materialize columns and rows
   //calls handlebars template
   //gets result from template and appends everything to the DOM
@@ -26,4 +28,4 @@ console.log("newMovieArray", newMovieArray);
 // $('#movie-card-div').html(cardTemplate(newMovieArray));
 }
 
-module.exports = {makeMovieCards};
+module.exports = {makeMovieCards, filterAPIObj};

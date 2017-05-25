@@ -3,7 +3,20 @@
 let $ = require("jquery"),
 	config = require("./api-config.js"),
 	firebase = require("./fbconfig.js"),
-	_ = require("../lib/node_modules/lodash/lodash.min.js");
+	_ = require("../lib/node_modules/lodash/lodash.min.js"),
+	DOM = require('./dom-build.js');
+
+
+$("#searchInput").keyup(function(e) {
+	if (e.keyCode === 13){
+		findMovies()
+		.then(function(movieData){
+			DOM.makeMovieCards(movieData.results);
+		});
+	}
+});
+
+
 
 function findMovies(/*params as needed to specify search of api*/) {
 	let searchParams = encodeURI($('#searchParams').val()),

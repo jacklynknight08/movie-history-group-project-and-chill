@@ -2,9 +2,14 @@
 console.log("main.js");
 
 let $ = require('jquery'),
-	interact = require('./db-interact.js');
+	interact = require('./db-interact.js'),
+	buildDom = require('./dom-build.js');
+
+
 
 function loadAPIMoviesToDOM() {
+	console.log("loading movies");
+	//buildDom.makeMovieCards(movieData.results);
 	//just takes API searched data and loads to dom
 }
 
@@ -17,7 +22,7 @@ function buildMovieObj() {
 	//also pushs rated and favorite movies to FB by adding/changing a key
 }
 
-//.add_to_watch eventListener 
+//.add_to_watch eventListener
 
 //search-btn eventListener (calls findMovies() and getWatchlist())
 
