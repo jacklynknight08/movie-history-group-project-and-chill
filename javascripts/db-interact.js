@@ -1,18 +1,19 @@
 "use strict";
 
 let $ = require("jquery"),
-config = require("./APIconfig.js");
+	config = require("./api-config.js");
 
-function findMovies(/*params as needed to specify search of api*/) {
+function findMovies(){
 	let searchParams = encodeURI($('#searchParams').val()),
-		api_key = APIconfig.getAPIsettings().api_key;
+		apiKey = config.getAPIsettings().apiKey;
 
 	return new Promise(function(resolve, reject){
 		$.ajax({
-			url: `${APIconfig.getAPIsettings().databaseURL}?api_key=${api_key}&query=${searchParams}`
+			url: `${config.getAPIsettings().movieSearchURL}&api_key=${apiKey}&query=${searchParams}`
 		}).done(function(movieData){
 			resolve(movieData);
 		}).fail(function(error){
+			// console.log("url equals", `${config.getAPIsettings().movieSearchURL}?api_key=${apiKey}&query=${searchParams}`);
 			reject(error);
 		});
 	});
@@ -49,3 +50,6 @@ function rateMovie(/*movie identifier, rating key*/) {
 }
 
 module.exports = {findMovies, getWatchlist, filterWatchlist, addToWatchlist, markAsWatched, deleteFromWatchlist, rateMovie};
+
+
+

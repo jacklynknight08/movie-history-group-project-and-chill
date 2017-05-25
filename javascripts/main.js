@@ -1,4 +1,16 @@
-"strict";
+"use strict";
+console.log("hello misss");
+let $ = require('jquery');
+let interact = require("./db-interact.js");
+
+
+
+$('#submit').on("click", function(){
+	interact.findMovies()
+	.then(function(data){
+	console.log("data", data);
+	});
+});
 
 function loadAPIMoviesToDOM() {
 	//just takes API searched data and loads to dom
@@ -13,7 +25,7 @@ function buildMovieObj() {
 	//also pushs rated and favorite movies to FB by adding/changing a key
 }
 
-//.add_to_watch eventListener 
+//.add_to_watch eventListener
 
 //search-btn eventListener (calls findMovies() and getWatchlist())
 

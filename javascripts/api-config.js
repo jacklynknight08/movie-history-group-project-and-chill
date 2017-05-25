@@ -8,7 +8,7 @@ let APIConfig = { //get private API access info
 
 let getAPIsettings = () => {
 	//return APIConfig
-	console.log("getAPIsettings", APIConfig);
+	// console.log("getAPIsettings", APIConfig);
 	return APIConfig;
 };
 
