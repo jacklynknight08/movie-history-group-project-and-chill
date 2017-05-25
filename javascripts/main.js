@@ -1,7 +1,7 @@
 "use strict";
-console.log("hello misss");
-let $ = require('jquery');
-let interact = require("./db-interact.js");
+console.log("hello miss");
+let $ = require('jquery'),
+	interact = require("./db-interact.js");
 
 
 
