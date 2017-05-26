@@ -11,7 +11,7 @@ let FBConfig = {
 	//get private FB access info
 	apiKey: fbData.apiKey,
 	authDomain: fbData.authDomain,
-	databaseURL: fbData.databaseURL,
+	databaseURL: fbData.databaseURL
 };
 
 firebase.getFBsettings = () => {
