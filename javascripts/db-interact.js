@@ -115,3 +115,8 @@ function rateMovie(movieID, rating) {
 }
 
 module.exports = {findMovies, getWatchlist, filterWatchlist, addToWatchlist, deleteFromWatchlist, rateMovie};
+
+
+
+
+

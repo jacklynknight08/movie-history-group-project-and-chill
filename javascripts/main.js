@@ -29,9 +29,16 @@ function loadFBMoviesToDOM() {
 }
 
 function buildMovieObj(event) {
+	console.log($(event.currentTarget.id));
 	//takes card created by converting API data to card and pushes to FB
 	//also pushs rated and favorite movies to FB by adding/changing a key
-	let movieObj = {"id": $(event.target).data("movie-id")};
+	let movieObj = {"id": $(event.currentTarget).data("movie-id"),
+					"title": $(event.currentTarget).data("movie-title"),
+					"overview": $(event.currentTarget).data("movie-overview"),
+					"release_date": $(event.currentTarget).data("movie-release_date"),
+					"poster_path": $(event.currentTarget).data("movie-poster_path")
+					};
+	console.log($(event.currentTarget).data("movie-id"));
 	return movieObj;
 }
 
@@ -47,11 +54,13 @@ $("#showContainer").on("click", function (){
 
 // Use this when the click isn't on the page yet
 
-$(document).on("click", "#add-button", function(event){
-	console.log("clicked add");
+$(document).on("click", ".add-button", function(event){
 	interact.addToWatchlist(buildMovieObj(event));
 });
 
+$(document).on("click", ".delete-button", function(event){
+	interact.deleteFromWatchlist(buildMovieObj(event));
+});
 
 
 
