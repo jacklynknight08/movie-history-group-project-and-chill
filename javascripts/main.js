@@ -36,7 +36,8 @@ function buildMovieObj(event) {
 					"title": $(event.currentTarget).data("movie-title"),
 					"overview": $(event.currentTarget).data("movie-overview"),
 					"release_date": $(event.currentTarget).data("movie-release_date"),
-					"poster_path": $(event.currentTarget).data("movie-poster_path")
+					"poster_path": $(event.currentTarget).data("movie-poster_path"),
+					"uid": user.getUser()
 					};
 	console.log($(event.currentTarget).data("movie-id"));
 	return movieObj;
@@ -55,23 +56,36 @@ $("#showContainer").on("click", function (){
 // Use this when the click isn't on the page yet
 
 $(document).on("click", ".add-button", function(event){
+	console.log("clicked add");
 	interact.addToWatchlist(buildMovieObj(event));
 });
 
 $(document).on("click", ".delete-button", function(event){
-	interact.deleteFromWatchlist(buildMovieObj(event));
+	console.log("clicked delete button");
+	let movieID = $(this).data("delete-id");
+	console.log(movieID);
+	interact.deleteFromWatchlist(movieID);
 });
-
-
-
-
-
 
 //search-btn eventListener (calls findMovies() and getWatchlist())
 
 
 //untracked-btn eventListener (callsfindMovies() and getWatchlist() with null values)
 //unwatched/watched/favs class=.search-btn
+
+$("#unwatchedMoviesButton").click(function(event){
+	let userID = user.getUser();
+	console.log("is this a userID", userID);
+	interact.getWatchlist(userID)
+	.then((data) => {
+		console.log("what is this?", data);
+		displayWatchlist(data);
+	});
+});
+
+function displayWatchlist(data){
+	$("#movie-card-div").html(template(data));
+}
 
 //login-btn eventListener (calls loginGoogle())
 
