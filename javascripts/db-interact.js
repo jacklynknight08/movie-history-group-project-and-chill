@@ -44,10 +44,11 @@ function findMovies(/*params as needed to specify search of api*/) {
 // 	});
 // }
 
-function getWatchlist() {
+function getWatchlist(userID) {
+	console.log("what is the userID", userID);
 	return new Promise(function(resolve, reject){
 		$.ajax({
-			url: `${firebase.getFBsettings().databaseURL}/watchlist.json?orderBy="uid"&equalTo=""`
+			url: `${firebase.getFBsettings().databaseURL}/watchlist.json?orderBy="uid"&equalTo="${userID}"`
 		}).done(function(watchlist){
 			resolve(watchlist);
 		}).fail(function(error){
