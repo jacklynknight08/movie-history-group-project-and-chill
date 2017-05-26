@@ -1,17 +1,42 @@
-<div class="row">
 
+<div class="row">
+<div id="movie-card-div">
 {{#each this}}
 
-		<div class="col s4">
-				<ul class="data-movie-id"={{id}}>
-					<li><img src={{poster_path}}></li>
-					<li><h5>{{title}}</h5></li>
-					<li><p>{{overview}}</p></li>
-					<li><p>{{release_date}}</p></li>
-					<li><p>{{actors}}</p></li>
-				</ul>
-		</div>
+
+			<div class="col l4">
+      			<div class="card">
+	        		<div class="card-image">
+	          			<img src={{poster_path}}>
+	          		</div>
+	          				<span class="card-title">{{title}}</span>
+	          				<a data-movie-id="{{id}}" id="add-button" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">+</i></a>
+          			<div class="card-content">{{overview}}</div>
+						<ul class="">
+							<li><p>{{release_date}}</p></li>
+							<li><p>{{actors}}</p></li>
+						</ul>
+					</div>
+			</div>
+
+
 
 {{/each}}
-
 </div>
+</div>
+
+
+
+{{!-- 
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-image">
+          <img src="images/sample-1.jpg">
+          <span class="card-title">Card Title</span>
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+        </div>
+      </div>
+    </div> --}}
